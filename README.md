@@ -2,6 +2,8 @@
 
 A lightweight, GPU-focused framework to run inference and LoRA fine-tuning on Google’s Gemma 3n family (`1.1B`, `2B`). Designed for small-scale deployments such as chatbots, assistants, or domain-specific Q&A systems.
 
+<img width="1920" height="835" alt="Screenshot 2025-07-11 at 12-59-00 Gemma 3n GPU Fine-Tuner - a Hugging Face Space by electricsheepafrica" src="https://github.com/user-attachments/assets/bf8dc63a-b2dc-4bdb-876c-a7d3bfdde35c" />
+
 ## Features
 
 * **GPU-only** inference and training for high performance.
@@ -29,7 +31,8 @@ This application requires a local GPU to run. The setup process differs based on
 
 ### Hardware Requirements (VRAM)
 
-Fine-tuning requires a significant amount of GPU memory (VRAM). Here are some estimates:
+Fine-tuning requires a signi<img width="1920" height="835" alt="Screenshot 2025-07-11 at 12-59-00 Gemma 3n GPU Fine-Tuner - a Hugging Face Space by electricsheepafrica" src="https://github.com/user-attachments/assets/c89f45dd-514a-410c-a007-867c1509db85" />
+ficant amount of GPU memory (VRAM). Here are some estimates:
 
 - **Gemma 3 1B**: At least **8-12 GB** of VRAM.
 - **Gemma 3 2B**: At least **12-16 GB** of VRAM.
