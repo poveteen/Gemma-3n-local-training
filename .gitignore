@@ -51,10 +51,14 @@ env/
 /models/
 *.xlsx
 *.csv
-*.pdf
 *.docx
 
 # IDE / Editor specific
 .vscode/
 .idea/
 *.swp
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
