@@ -1,0 +1,21 @@
+# Core dependencies for Gemma 3n CPU Training and Finetuning
+# Versions are indicative; adjust as necessary for your environment.
+torch>=2.2.0
+transformers>=4.40.0
+datasets>=2.18.0
+peft>=0.10.0
+accelerate>=0.28.0
+# bitsandbytes>=0.43.0       # Optional, CPU quantization (Linux-only)
+sentencepiece>=0.1.99
+scipy>=1.12.0
+typer>=0.9.0
+pyyaml>=6.0
+pydantic>=6.0
+pandas>=2.2.0
+tqdm>=4.66.4
+
+# Web app and file processing dependencies
+gradio>=4.0.0
+pypdf>=4.0.0
+python-docx>=1.1.0
+pydantic==2.10.6

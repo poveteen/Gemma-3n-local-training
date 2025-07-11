@@ -1,0 +1,14 @@
+# Sample LoRA fine-tuning configuration for Gemma 3n (CPU-only)
+model_name: google/gemma-3-1b-it
+train_data_path: ./data/train.jsonl
+val_data_path: ./data/val.jsonl
+output_dir: ./models/gemma_finetuned
+quantization: none  # [none, int8, 4bit]
+batch_size: 8
+epochs: 3
+learning_rate: 2e-5
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.1
+  target_modules: ["q_proj", "v_proj"]
