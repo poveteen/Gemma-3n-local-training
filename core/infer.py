@@ -17,10 +17,18 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s | %(me
 def load_model_for_inference(model_path: str, quantization: str = "none") -> tuple[Any, Any]:
     """Load tokenizer and (optionally LoRA) model strictly on GPU for inference."""
     # Ensure GPU is available
-    if not torch.cuda.is_available():
-        raise RuntimeError("GPU not available, but GPU-only inference requested.")
+    #if not torch.cuda.is_available():
+    #    raise RuntimeError("GPU not available, but GPU-only inference requested.")
 
-    device = "cuda"
+    if torch.cuda.is_available():
+        device = "cuda"
+    elif torch.backends.mps.is_available():
+        device = "mps"
+    else:
+        device = "cpu"
+    print(f"Using device: {device}")
+
+    #device = "cuda"
     quant_args: Dict[str, Any] = {}
     if quantization == "int8":
         quant_args["load_in_8bit"] = True
@@ -57,7 +65,8 @@ def run_inference_from_app(
 ):
     """Generates and streams response for the Gradio chat interface."""
 
-    device = "cuda"
+    #device = "cuda"
+    model.to(device)
     inputs = tokenizer([prompt], return_tensors="pt").to(device)
     streamer = TextIteratorStreamer(tokenizer, timeout=10.0, skip_prompt=True, skip_special_tokens=True)
 
