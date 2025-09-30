@@ -103,9 +103,15 @@ def run_training_from_app(model_name: str, train_data_path: str, output_dir: str
     )
 
     # Require GPU for this run
-    if not torch.cuda.is_available():
-        raise RuntimeError("GPU not available, but GPU-only execution requested. Please attach a GPU runtime.")
-
+    #if not torch.cuda.is_available():
+    #    raise RuntimeError("GPU not available, but GPU-only execution requested. Please attach a GPU runtime.")
+    if torch.cuda.is_available():
+        device = "cuda"
+    elif torch.backends.mps.is_available():
+        device = "mps"
+    else:
+        device = "cpu"
+    print(f"Using device: {device}")
     ensure_dir(cfg.output_dir)
 
     model, tokenizer = load_model_and_tokenizer(cfg)
